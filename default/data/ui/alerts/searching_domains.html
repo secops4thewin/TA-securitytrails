@@ -1,0 +1,54 @@
+<form class="form-horizontal form-complex">
+<div class="control-group">
+	<label class="control-label" for="searching_domains_value">Value <span class="required">*</span> </label>
+    <div class="controls">
+<select name="action.searching_domains.param.value" id="searching_domains_value">
+        <option value="tld">TLD</option>
+        <option value="whois_postalCode">Whois Postal Code</option>
+        <option value="subdomain">Subdomain</option>
+        <option value="whois_city">Whois City</option>
+        <option value="soa_email">SOA Email</option>
+        <option value="whois_telephone">Whois Telephone</option>
+        <option value="ns">NS</option>
+        <option value="whois_name">Whois Name</option>
+        <option value="whois_fax">Whois Fax</option>
+        <option value="mx">MX</option>
+        <option value="whois_street1">Whois Street 1</option>
+        <option value="cname">CNAME</option>
+        <option value="whois_street4">Whois Street 3</option>
+        <option value="whois_street2">Whois Street 2</option>
+        <option value="ipv6">IPv6</option>
+        <option value="ipv4">IPv4</option>
+        <option value="whois_email">Whois Email</option>
+        <option value="whois_organization">Whois Organization</option>
+</select>
+    </div>
+</div>
+<div class="control-group">
+	<label class="control-label" for="searching_domains_value_search">Value Search <span class="required">*</span> </label>
+    <div class="controls">
+	<input type="text" name="action.searching_domains.param.value_search" id="searching_domains_value_search"/>
+                <span class="help-block"> 
+                    Examples are for ipv4 1.1.1.0/32 or 35.12.55.22.  Whois Email test@example.com
+                </span>
+    </div>
+</div>
+<div class="control-group">
+	<label class="control-label" for="searching_domains_keyword_search">Keyword Search <span class="required">*</span> </label>
+    <div class="controls">
+	<input type="text" name="action.searching_domains.param.keyword_search" id="searching_domains_keyword_search"/>
+                <span class="help-block"> 
+                    Substring of a value. Eg. the value of oa would yield all hostnames containing oa characters.
+                </span>
+    </div>
+</div>
+<div class="control-group">
+	<label class="control-label" for="searching_domains_search_description">Search Description <span class="required">*</span> </label>
+    <div class="controls">
+	<input type="text" name="action.searching_domains.param.search_description" id="searching_domains_search_description"/>
+                <span class="help-block"> 
+                    This search description field is for the purpose of tying a reason to the request that was made.
+                </span>
+    </div>
+</div>
+</form>

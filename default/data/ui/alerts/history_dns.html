@@ -1,0 +1,36 @@
+<form class="form-horizontal form-complex">
+<div class="control-group">
+	<label class="control-label" for="history_dns_domain">Domain <span class="required">*</span> </label>
+    <div class="controls">
+	<input type="text" name="action.history_dns.param.domain" id="history_dns_domain"/>
+                <span class="help-block"> 
+                    Domain to be searched
+                </span>
+    </div>
+</div>
+<div class="control-group">
+	<label class="control-label" for="history_dns_record_type">Record Type <span class="required">*</span> </label>
+    <div class="controls">
+<select name="action.history_dns.param.record_type" id="history_dns_record_type">
+        <option value="aaaa">AAAA</option>
+        <option value="txt">TXT</option>
+        <option value="soa">SOA</option>
+        <option value="ns">NS</option>
+        <option value="a">A</option>
+        <option value="mx">MX</option>
+</select>
+                <span class="help-block"> 
+                    The DNS record type.
+                </span>
+    </div>
+</div>
+<div class="control-group">
+	<label class="control-label" for="history_dns_search_description">Search Description <span class="required">*</span> </label>
+    <div class="controls">
+	<input type="text" name="action.history_dns.param.search_description" id="history_dns_search_description"/>
+                <span class="help-block"> 
+                    This notes field is for the purpose of tying a reason to the request that was made.
+                </span>
+    </div>
+</div>
+</form>
