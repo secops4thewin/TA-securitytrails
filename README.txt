@@ -16,7 +16,8 @@ This Add-On provides a method to use Splunk Adaptive Response to automate lookup
 
 
 ## SecurityTrails Add-On For Splunk Requirements
-This Add-On requires access to the SecurityTrails API located [here](https://securitytrails.com/splunkapp)
+This Add-On requires access to the SecurityTrails API located [here](https://securitytrails.com/splunkapp) and the Splunk Common Information Model App located [here](https://splunkbase.splunk.com/app/1621/)
+
 
 ### Installation
 1. Either git clone this directory 'git clone https://github.com/secops4thewin/TA-securitytrails.git' or download the spl file located here.
@@ -25,7 +26,8 @@ This Add-On requires access to the SecurityTrails API located [here](https://sec
 4. Enable a proxy if it is required
 5. Click Add-on Settings and enter the API Key and the Index. 
 6. Click Save
-7. Create a search that produces a result such as a domain name and pass the results using the Splunk tokens such as $result.src_ip$ or $src_ip$
+7. If you have proxy rules please allow https://api.securitytrails.com from your Search Head
+8. Create a search that produces a result such as a domain name and pass the results using the Splunk tokens such as $result.dest$
 
 
 ## Release Notes
