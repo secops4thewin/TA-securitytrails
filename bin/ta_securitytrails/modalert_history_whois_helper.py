@@ -88,7 +88,7 @@ def process_event(helper, *args, **kwargs):
     search_description = helper.get_param("search_description")
     
     #Create the URI String that looks for the domain
-    url = 'https://api.securitytrails.com/v1/domain/{}/whois'.format(domain)
+    url = 'https://api.securitytrails.com/v1/history/{}/whois'.format(domain)
     
     method = "GET"
     
