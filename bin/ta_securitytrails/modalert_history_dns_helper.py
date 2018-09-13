@@ -1,76 +1,6 @@
 # encoding = utf-8
 
 def process_event(helper, *args, **kwargs):
-    """
-    # IMPORTANT
-    # Do not remove the anchor macro:start and macro:end lines.
-    # These lines are used to generate sample code. If they are
-    # removed, the sample code will not be updated when configurations
-    # are updated.
-
-    [sample_code_macro:start]
-
-    # The following example sends rest requests to some endpoint
-    # response is a response object in python requests library
-    response = helper.send_http_request("http://www.splunk.com", "GET", parameters=None,
-                                        payload=None, headers=None, cookies=None, verify=True, cert=None, timeout=None, use_proxy=True)
-    # get the response headers
-    r_headers = response.headers
-    # get the response body as text
-    r_text = response.text
-    # get response body as json. If the body text is not a json string, raise a ValueError
-    r_json = response.json()
-    # get response cookies
-    r_cookies = response.cookies
-    # get redirect history
-    historical_responses = response.history
-    # get response status code
-    r_status = response.status_code
-    # check the response status, if the status is not sucessful, raise requests.HTTPError
-    response.raise_for_status()
-
-
-    # The following example gets and sets the log level
-    helper.set_log_level(helper.log_level)
-
-    # The following example gets account information
-    user_account = helper.get_user_credential("<account_name>")
-
-    # The following example gets the setup parameters and prints them to the log
-    api_key = helper.get_global_setting("api_key")
-    helper.log_info("api_key={}".format(api_key))
-    index = helper.get_global_setting("index")
-    helper.log_info("index={}".format(index))
-
-    # The following example gets the alert action parameters and prints them to the log
-    domain = helper.get_param("domain")
-    helper.log_info("domain={}".format(domain))
-
-    record_type = helper.get_param("record_type")
-    helper.log_info("record_type={}".format(record_type))
-
-    search_description = helper.get_param("search_description")
-    helper.log_info("search_description={}".format(search_description))
-
-
-    # The following example adds two sample events ("hello", "world")
-    # and writes them to Splunk
-    # NOTE: Call helper.writeevents() only once after all events
-    # have been added
-    helper.addevent("hello", sourcetype="sample_sourcetype")
-    helper.addevent("world", sourcetype="sample_sourcetype")
-    helper.writeevents(index="summary", host="localhost", source="localhost")
-
-    # The following example gets the events that trigger the alert
-    events = helper.get_events()
-    for event in events:
-        helper.log_info("event={}".format(event))
-
-    # helper.settings is a dict that includes environment configuration
-    # Example usage: helper.settings["server_uri"]
-    helper.log_info("server_uri={}".format(helper.settings["server_uri"]))
-    [sample_code_macro:end]
-    """
     import json
     
     helper.log_info("Alert action history_dns started.")
@@ -92,30 +22,52 @@ def process_event(helper, *args, **kwargs):
     record_type = helper.get_param("record_type")
     
     #Create the URI String that looks for the domain
-    url = 'https://api.securitytrails.com/v1/history/{}/dns/{}'.format(domain,record_type)
+    url = 'https://api.securitytrails.com/v1/history/{}/dns/{}?page=1'.format(domain,record_type)
     
     method = "GET"
     
-    #Build HTTP Connection
-    #http = helper.build_http_connection(helper.proxy, timeout=30)
-    
-    
     #Create Header Values
     headers = {
-    'APIKEY' : '{}'.format(api_key)
+    'User-Agent' : 'Splunk Adaptive Response',
+    'APIKEY': '{}'.format(api_key)
+    
     }
     
     #Make HTTP Request
     response = helper.send_http_request(url, method, parameters=None, payload=None, headers=headers, cookies=None, verify=True, cert=None, timeout=10, use_proxy=use_proxy)
 
     if response.status_code == 200:
+        # JSON Response
+        json_resp = response.json()
+        
+        # Format output
+        outputArray = []
+        i = 1
+        # While i is less than the total pages
+        while i <= json_resp['pages']:
+            # For eachr record in the response
+            for a in json_resp['records']:
+                    # Append the results
+                    outputArray.append(a)
+            i += 1
+            # Create a new request to the api endpoint
+            url = 'https://api.securitytrails.com/v1/history/{}/dns/{}?&page={}'.format(domain,record_type,i)
+            
+            # Connect to Phantom Endpoint
+            helper.log_info("Alert action history_dns started.")
+
+            # Make connection to endpoint
+            response = helper.send_http_request(url, method, parameters=None, payload=None, headers=headers, cookies=None, verify=True, cert=None, timeout=10, use_proxy=use_proxy)
+
         #Log successfull request
         helper.log_info("Received 200 OK from security trails for domain {}.".format(domain))
         
         #Add note information to JSON output
-        json_load = response.json()
+        json_load = {}
         json_load['search_description'] = search_description
         json_load['search_type'] = "DNS History Search"
+        json_load['domain'] = domain
+        json_load['results'] = outputArray
         
         #Convert output to JSON String
         json_data = json.dumps(json_load)

@@ -19,17 +19,15 @@ def process_event(helper, *args, **kwargs):
     index_name = helper.get_global_setting("index")
     
     #Get Local Parameters
-    ip_range = helper.get_param("ip_range")
+    ip_address = helper.get_param("ip_address")
     search_description = helper.get_param("search_description")
     
-    ip_mask_check = re.match("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2}$",ip_range)
+    ip_mask_check = re.match("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$",ip_address)
     if not ip_mask_check:
-        helper.log_error("Invalid IPv4 Address Range with IP Range: {}".format(ip_range))
+        helper.log_error("Invalid IPv4 Address Range IP value: {}".format(ip_address))
         sys.exit()
     #Create the URI String that looks for the domain
-    ip = str(ip_range.split("/")[0])
-    mask = str(ip_range.split("/")[1])
-    url = 'https://api.securitytrails.com/v1/explore/ip/{}?mask-{}'.format(ip,mask)
+    url = 'https://api.securitytrails.com/v1/ips/nearby/{}'.format(ip_address)
     
     method = "GET"
     
@@ -43,12 +41,13 @@ def process_event(helper, *args, **kwargs):
 
     if response.status_code == 200:
         #Log successfull request
-        helper.log_info("Received 200 OK from security trails for domain {}.".format(ip_range))
+        helper.log_info("Received 200 OK from security trails for IP {}.".format(ip_address))
         
         #Add note information to JSON output
         json_load = response.json()
         json_load['search_description'] = search_description
         json_load['search_type'] = "IPv4 Explorer Search"
+        json_load['ip'] = ip_address
         
         #Convert output to JSON String
         json_data = json.dumps(json_load)
@@ -64,12 +63,12 @@ def process_event(helper, *args, **kwargs):
 
     elif response.status_code == 400:
         #Log successfull request
-        helper.log_info("Received 400 error from security trails for domain {}.".format(ip_range))
+        helper.log_info("Received 400 error from security trails for domain {}.".format(ip_address))
         
         #Add note information to JSON output
         json_load = response.json()
         json_load['search_description'] = search_description
-        json_load['ip_range'] = ip_range
+        json_load['ip'] = ip_address
         json_load['search_type'] = "IPv4 Explorer Search"
         
         #Convert output to JSON String
@@ -98,7 +97,7 @@ def process_event(helper, *args, **kwargs):
     
     else:        
         #If all fails then output an error message to the logging framework for passing onto security trails.
-        helper.log_error("Error with request of {}, response code of {} and content of {}.  Please pass this information onto security trails if you believe this is incorrect.".format(ip_range,response.status_code,response.json()))
+        helper.log_error("Error with request of {}, response code of {} and content of {}.  Please pass this information onto security trails if you believe this is incorrect.".format(ip_address,response.status_code,response.json()))
     
     
  

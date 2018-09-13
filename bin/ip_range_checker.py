@@ -24,8 +24,8 @@ class AlertActionWorkerip_range_checker(ModularAlertBase):
             self.log_error('index is a mandatory setup parameter, but its value is None.')
             return False
 
-        if not self.get_param("ip_range"):
-            self.log_error('ip_range is a mandatory parameter, but its value is None.')
+        if not self.get_param("ip_address"):
+            self.log_error('ip_address is a mandatory parameter, but its value is None.')
             return False
         return True
 
