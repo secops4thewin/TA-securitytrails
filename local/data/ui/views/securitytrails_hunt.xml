@@ -1,0 +1,499 @@
+<!--
+Placeholder for debugging
+<form script="simple_xml_examples:showtokens.js">
+-->
+<form>
+
+  <init>
+    <unset token="searching_domains_tok"></unset>
+    <unset token="list_subdomains_tok"></unset>
+    <unset token="list_tags_tok"></unset>
+    <unset token="get_associated_tok"></unset>
+    <unset token="get_whois_tok"></unset>
+    <unset token="history_dns_tok"></unset>
+    <unset token="history_whois_tok"></unset>
+    <unset token="get_domain_tok"></unset>
+    <unset token="ip_range_checker_tok"></unset>
+    <unset token="value_search"></unset>
+    <unset token="list_subdomains_domain"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_searcher_value"></unset>
+    <unset token="keyword_search"></unset>
+    <unset token="domain_associated"></unset>
+    <unset token="domain_tag"></unset>
+    <unset token="domain_whois"></unset>
+    <unset token="domain_history_domain"></unset>
+    <unset token="domain_history_record_type"></unset>
+    <unset token="whois_history_domain"></unset>
+    <unset token="get_domain_domain"></unset>
+    <unset token="ip_range"></unset>
+  </init>
+  <label>SecurityTrails Hunt</label>
+  <fieldset submitButton="true" autoRun="false">
+    <input type="dropdown" token="api_type">
+      <label>API</label>
+      <choice value="searching_domains">Searching Domains</choice>
+      <choice value="list_subdomains">List Subdomains</choice>
+      <choice value="list_tags">List Tags</choice>
+      <choice value="get_associated">Get Associated Domain</choice>
+      <choice value="get_whois">Get Whois</choice>
+      <choice value="history_dns">History DNS</choice>
+      <choice value="history_whois">History Whois</choice>
+      <choice value="get_domain">Get Domain</choice>
+      <choice value="ip_range_checker">IP Checker</choice>
+      <change>
+        <condition value="searching_domains">
+          <set token="searching_domains_tok">true</set>
+             <!-- Unset Tokens -->
+                 <unset token="list_subdomains_tok"></unset>
+    <unset token="list_tags_tok"></unset>
+    <unset token="get_associated_tok"></unset>
+    <unset token="get_whois_tok"></unset>
+    <unset token="history_dns_tok"></unset>
+    <unset token="history_whois_tok"></unset>
+    <unset token="get_domain_tok"></unset>
+    <unset token="ip_range_checker_tok"></unset>
+    <unset token="list_subdomains_domain"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_associated"></unset>
+    <unset token="domain_tag"></unset>
+    <unset token="domain_whois"></unset>
+    <unset token="domain_history_domain"></unset>
+    <unset token="domain_history_record_type"></unset>
+    <unset token="whois_history_domain"></unset>
+    <unset token="get_domain_domain"></unset>
+    <unset token="ip_range"></unset>
+
+        </condition>
+        <condition value="list_subdomains">
+          <!-- Unset Tokens -->
+          <set token="list_subdomains_tok">true</set>
+    <unset token="searching_domains_tok"></unset>
+    <unset token="list_tags_tok"></unset>
+    <unset token="get_associated_tok"></unset>
+    <unset token="get_whois_tok"></unset>
+    <unset token="history_dns_tok"></unset>
+    <unset token="history_whois_tok"></unset>
+    <unset token="get_domain_tok"></unset>
+    <unset token="ip_range_checker_tok"></unset>
+    <unset token="value_search"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_searcher_value"></unset>
+    <unset token="keyword_search"></unset>
+    <unset token="domain_associated"></unset>
+    <unset token="domain_tag"></unset>
+    <unset token="domain_whois"></unset>
+    <unset token="domain_history_domain"></unset>
+    <unset token="domain_history_record_type"></unset>
+    <unset token="whois_history_domain"></unset>
+    <unset token="get_domain_domain"></unset>
+    <unset token="ip_range"></unset>
+        </condition>
+        <condition value="list_tags">
+          <set token="list_tags_tok">true</set>
+              <unset token="searching_domains_tok"></unset>
+    <unset token="list_subdomains_tok"></unset>
+    <unset token="get_associated_tok"></unset>
+    <unset token="get_whois_tok"></unset>
+    <unset token="history_dns_tok"></unset>
+    <unset token="history_whois_tok"></unset>
+    <unset token="get_domain_tok"></unset>
+    <unset token="ip_range_checker_tok"></unset>
+    <unset token="value_search"></unset>
+    <unset token="list_subdomains_domain"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_searcher_value"></unset>
+    <unset token="keyword_search"></unset>
+    <unset token="domain_associated"></unset>
+    <unset token="domain_whois"></unset>
+    <unset token="domain_history_domain"></unset>
+    <unset token="domain_history_record_type"></unset>
+    <unset token="whois_history_domain"></unset>
+    <unset token="get_domain_domain"></unset>
+    <unset token="ip_range"></unset>
+
+        </condition>
+        <condition value="get_associated">
+          <set token="get_associated_tok">true</set>
+              <unset token="searching_domains_tok"></unset>
+    <unset token="list_subdomains_tok"></unset>
+    <unset token="list_tags_tok"></unset>
+    <unset token="get_whois_tok"></unset>
+    <unset token="history_dns_tok"></unset>
+    <unset token="history_whois_tok"></unset>
+    <unset token="get_domain_tok"></unset>
+    <unset token="ip_range_checker_tok"></unset>
+    <unset token="value_search"></unset>
+    <unset token="list_subdomains_domain"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_searcher_value"></unset>
+    <unset token="keyword_search"></unset>
+    <unset token="domain_tag"></unset>
+    <unset token="domain_whois"></unset>
+    <unset token="domain_history_domain"></unset>
+    <unset token="domain_history_record_type"></unset>
+    <unset token="whois_history_domain"></unset>
+    <unset token="get_domain_domain"></unset>
+    <unset token="ip_range"></unset>
+        </condition>
+        <condition value="get_whois">
+          <set token="get_whois_tok">true</set>
+              <unset token="searching_domains_tok"></unset>
+    <unset token="list_subdomains_tok"></unset>
+    <unset token="list_tags_tok"></unset>
+    <unset token="get_associated_tok"></unset>
+    <unset token="history_dns_tok"></unset>
+    <unset token="history_whois_tok"></unset>
+    <unset token="get_domain_tok"></unset>
+    <unset token="ip_range_checker_tok"></unset>
+    <unset token="value_search"></unset>
+    <unset token="list_subdomains_domain"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_searcher_value"></unset>
+    <unset token="keyword_search"></unset>
+    <unset token="domain_associated"></unset>
+    <unset token="domain_tag"></unset>
+    <unset token="domain_history_domain"></unset>
+    <unset token="domain_history_record_type"></unset>
+    <unset token="whois_history_domain"></unset>
+    <unset token="get_domain_domain"></unset>
+    <unset token="ip_range"></unset>
+        </condition>
+        <condition value="history_dns">
+          <set token="history_dns_tok">true</set>
+              <unset token="searching_domains_tok"></unset>
+    <unset token="list_subdomains_tok"></unset>
+    <unset token="list_tags_tok"></unset>
+    <unset token="get_associated_tok"></unset>
+    <unset token="get_whois_tok"></unset>
+    <unset token="history_whois_tok"></unset>
+    <unset token="get_domain_tok"></unset>
+    <unset token="ip_range_checker_tok"></unset>
+    <unset token="value_search"></unset>
+    <unset token="list_subdomains_domain"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_searcher_value"></unset>
+    <unset token="keyword_search"></unset>
+    <unset token="domain_associated"></unset>
+    <unset token="domain_tag"></unset>
+    <unset token="domain_whois"></unset>
+    <unset token="whois_history_domain"></unset>
+    <unset token="get_domain_domain"></unset>
+    <unset token="ip_range"></unset>
+        </condition>
+        <condition value="history_whois">
+          <set token="history_whois_tok">true</set>
+              <unset token="searching_domains_tok"></unset>
+    <unset token="list_subdomains_tok"></unset>
+    <unset token="list_tags_tok"></unset>
+    <unset token="get_associated_tok"></unset>
+    <unset token="get_whois_tok"></unset>
+    <unset token="history_dns_tok"></unset>
+    <unset token="get_domain_tok"></unset>
+    <unset token="ip_range_checker_tok"></unset>
+    <unset token="value_search"></unset>
+    <unset token="list_subdomains_domain"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_searcher_value"></unset>
+    <unset token="keyword_search"></unset>
+    <unset token="domain_associated"></unset>
+    <unset token="domain_tag"></unset>
+    <unset token="domain_whois"></unset>
+    <unset token="domain_history_domain"></unset>
+    <unset token="domain_history_record_type"></unset>
+    <unset token="get_domain_domain"></unset>
+    <unset token="ip_range"></unset>
+        </condition>
+        <condition value="get_domain">
+          <set token="get_domain_tok">true</set>
+              <unset token="searching_domains_tok"></unset>
+    <unset token="list_subdomains_tok"></unset>
+    <unset token="list_tags_tok"></unset>
+    <unset token="get_associated_tok"></unset>
+    <unset token="get_whois_tok"></unset>
+    <unset token="history_dns_tok"></unset>
+    <unset token="history_whois_tok"></unset>
+    <unset token="ip_range_checker_tok"></unset>
+    <unset token="value_search"></unset>
+    <unset token="list_subdomains_domain"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_searcher_value"></unset>
+    <unset token="keyword_search"></unset>
+    <unset token="domain_associated"></unset>
+    <unset token="domain_tag"></unset>
+    <unset token="domain_whois"></unset>
+    <unset token="domain_history_domain"></unset>
+    <unset token="domain_history_record_type"></unset>
+    <unset token="ip_range"></unset>
+        </condition>
+        <condition value="ip_range_checker">
+          <set token="ip_range_checker_tok">true</set>
+              <unset token="searching_domains_tok"></unset>
+    <unset token="list_subdomains_tok"></unset>
+    <unset token="list_tags_tok"></unset>
+    <unset token="get_associated_tok"></unset>
+    <unset token="get_whois_tok"></unset>
+    <unset token="history_dns_tok"></unset>
+    <unset token="history_whois_tok"></unset>
+    <unset token="get_domain_tok"></unset>
+    <unset token="value_search"></unset>
+    <unset token="list_subdomains_domain"></unset>
+    <unset token="search_description"></unset>
+    <unset token="domain_searcher_value"></unset>
+    <unset token="keyword_search"></unset>
+    <unset token="domain_associated"></unset>
+    <unset token="domain_tag"></unset>
+    <unset token="domain_whois"></unset>
+    <unset token="domain_history_domain"></unset>
+    <unset token="domain_history_record_type"></unset>
+    <unset token="whois_history_domain"></unset>
+    <unset token="get_domain_domain"></unset>
+        </condition>
+      </change>
+    </input>
+    <input depends="$searching_domains_tok$" type="text" token="value_search">
+      <label>Domain Searcher - Value Search</label>
+      <prefix>param.value_search="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$searching_domains_tok$" type="text" token="keyword_search">
+      <label>Domain Searcher - Keyword Search</label>
+      <prefix>param.keyword_search="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$searching_domains_tok$" type="dropdown" token="domain_searcher_value">
+      <label>Domain Searcher - Record Type</label>
+      <choice value="ns">NS</choice>
+      <choice value="cname">CNAME</choice>
+      <choice value="whois_street1">Whois Street 1</choice>
+      <choice value="whois_street3">Whois Street 3</choice>
+      <choice value="whois_street2">Whois Street 2</choice>
+      <choice value="tld">TLD</choice>
+      <choice value="whois_organization">Whois Organization</choice>
+      <choice value="whois_fax">Whois Fax</choice>
+      <choice value="whois_postalCode">Whois Postal Code</choice>
+      <choice value="soa_email">SOA Email</choice>
+      <choice value="whois_name">Whois Name</choice>
+      <choice value="ipv4">IPv4</choice>
+      <choice value="whois_city">Whois City</choice>
+      <choice value="subdomain">Subdomain</choice>
+      <choice value="whois_email">Whois Email</choice>
+      <choice value="whois_telephone">Whois Telephone</choice>
+      <choice value="mx">MX</choice>
+      <choice value="ipv6">IPv6</choice>
+      <prefix>param.value="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$list_subdomains_tok$" type="text" token="list_subdomains_domain" searchWhenChanged="true">
+      <label>Subdomains Searcher - Domain</label>
+      <prefix>param.domain="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input type="text" token="search_description" searchWhenChanged="false">
+      <label>Search Description</label>
+      <prefix>param.search_description="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$list_tags_tok$" type="text" token="domain_tag">
+      <label>Tags Search - Domain</label>
+      <prefix>param.domain="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$get_associated_tok$" type="text" token="domain_associated">
+      <label>Associated Domain - Domain</label>
+      <prefix>param.domain="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$get_whois_tok$" type="text" token="domain_whois">
+      <label>Get Whois - Domain</label>
+      <prefix>param.domain="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$history_dns_tok$" type="text" token="domain_history_domain">
+      <label>History DNS - Domain</label>
+      <prefix>param.domain="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$history_whois_tok$" type="text" token="whois_history_domain">
+      <label>Whois DNS - Domain</label>
+      <prefix>param.domain="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$history_dns_tok$" type="dropdown" token="domain_history_record_type">
+      <label>Domain Searcher - Record Type</label>
+      <choice value="ns">NS</choice>
+      <choice value="mx">MX</choice>
+      <choice value="soa">SOA</choice>
+      <choice value="a">A</choice>
+      <choice value="txt">TXT</choice>
+      <choice value="aaaa">AAAA</choice>
+      <prefix>param.record_type="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$get_domain_tok$" type="text" token="get_domain_domain">
+      <label>Get Domain - Domain</label>
+      <prefix>param.domain="</prefix>
+      <suffix>"</suffix>
+    </input>
+    <input depends="$ip_range_checker_tok$" type="text" token="ip_range">
+      <label>IP Range Checker - IP</label>
+      <prefix>param.ip_address="</prefix>
+      <suffix>"</suffix>
+    </input>
+  </fieldset>
+  <row>
+  <html>
+      <b>How To:</b>
+      <li>Select the API from the dropdown menu under API.  </li>
+      <li>Fill out the necessary fields as described</li>
+      <li>Enter a search description (Something like an incident ID or ticket ID can help you track this request)</li>
+      <li>Press Submit</li>
+      <li>You will notice two panels.  One issues the search command, the other has the search results.  Once the search is complete reload the bottom panel by clicking the refresh icon (hover over the panel in the bottom left)</li>
+    </html>
+    </row>
+  <row>
+    <panel depends="$list_tags_tok$">
+      <event>
+        <title>List Tags Search</title>
+        <search>
+          <query>|makeresults count=1 |sendalert $api_type$ $search_description$ $domain_tag$</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$searching_domains_tok$">
+      <event>
+        <title>Domain Searcher</title>
+        <search>
+          <query>|makeresults count=1 |sendalert $api_type$ $search_description$ $value_search$
+                        $keyword_search$ $domain_searcher_value$</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$list_subdomains_tok$">
+      <event>
+        <title>List Subdomains</title>
+        <search>
+          <query>|makeresults count=1 |sendalert $api_type$ $search_description$ $list_subdomains_domain$</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$get_associated_tok$">
+      <event>
+        <title>Get Associated Tags</title>
+        <search>
+          <query>|makeresults count=1 |sendalert $api_type$ $search_description$ $domain_associated$</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$get_whois_tok$">
+      <event>
+        <title>Get Whois</title>
+        <search>
+          <query>|makeresults count=1 |sendalert $api_type$ $search_description$ $domain_whois$</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$history_dns_tok$">
+      <event>
+        <title>DNS History</title>
+        <search>
+          <query>|makeresults count=1 |sendalert $api_type$ $search_description$ $domain_history_domain$
+                        $domain_history_record_type$</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$history_whois_tok$">
+      <event>
+        <title>WHOIS History</title>
+        <search>
+          <query>|makeresults count=1 |sendalert $api_type$ $search_description$ $whois_history_domain$
+                    </query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$get_domain_tok$">
+      <event>
+        <title>Get Domain</title>
+        <search>
+          <query>|makeresults count=1 |sendalert $api_type$ $search_description$ $get_domain_domain$ </query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+  <row>
+    <panel depends="$ip_range_checker_tok$">
+      <event>
+        <title>IP Range Checker</title>
+        <search>
+          <query>|makeresults count=1 |sendalert $api_type$ $search_description$ $ip_range$ </query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <event>
+        <title>Search Results</title>
+        <search>
+          <query>`securitytrails_index` sourcetype="securitytrails:json"</query>
+          <earliest>-15m</earliest>
+          <latest>now</latest>
+          <refresh>30s</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="list.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </event>
+    </panel>
+  </row>
+</form>

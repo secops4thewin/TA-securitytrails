@@ -1,0 +1,5 @@
+<nav search_view="search" color="#333">
+<view name="configuration" default="true"/>
+<view name="search" label="Search"/>
+  <view name="securitytrails_hunt" label="SecurityTrails Hunt"/>
+</nav>

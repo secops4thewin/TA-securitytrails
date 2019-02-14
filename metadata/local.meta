@@ -40,9 +40,18 @@ modtime = 1516337307.972226000
 
 [ta_securitytrails_settings/additional_parameters]
 version = 7.1.2
-modtime = 1536796973.920467000
+modtime = 1549952364.482506000
 
 [props/source%3A%3A...get_associated_modalert.log%2A]
 owner = admin
 version = 7.1.2
 modtime = 1536798813.103115000
+
+[views/securitytrails_hunt]
+owner = admin
+version = 7.1.2
+modtime = 1550123651.078612000
+
+[nav/default]
+version = 7.1.2
+modtime = 1549944059.041935000

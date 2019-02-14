@@ -21,11 +21,6 @@ param.domain = <string> Domain. It's a required parameter.
 param.search_description = <string> Search Description. It's a required parameter. It's default value is Adaptive Response Action.
 param._cam = <json> Active response parameters.
 
-[get_whois]
-param.domain = <string> Domain. It's a required parameter.
-param.search_description = <string> Search Description. It's a required parameter. It's default value is Adaptive Response Action.
-param._cam = <json> Active response parameters.
-
 [history_dns]
 param.search_description = <string> Search Description. It's a required parameter. It's default value is Adaptive Response Action.
 param._cam = <json> Active response parameters.
@@ -46,4 +41,9 @@ param.domain = <string> Domain. It's a required parameter.
 param.search_description = <string> Search Description.  It's default value is Adaptive Response Action.
 param._cam = <json> Active response parameters.
 param.ip_address = <string> IP Address. It's a required parameter.
+
+[get_whois]
+param._cam = <json> Active response parameters.
+param.search_description = <string> Search Description. It's a required parameter. It's default value is Adaptive Response Action.
+param.domain = <string> Domain. It's a required parameter.
 
